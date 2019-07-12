@@ -16,4 +16,13 @@ public class AppTest {
         App classUnderTest = new App();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
+    @Test
+    public void testMockClass()throws Exception{
+        List mockedList = mock(List.class);
+        mockedList.add("one");
+        mockedList.add("two");
+        mockedList.add("two");
+        mockedList.clear();
+        verify(mockedList).add("one");//验证是否调用过一次 mockedList.add("one")方法，若不是（0次或者大于一次），测试将不通过
+    }
 }
